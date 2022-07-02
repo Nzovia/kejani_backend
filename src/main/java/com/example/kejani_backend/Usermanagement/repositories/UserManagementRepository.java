@@ -3,8 +3,12 @@ package com.example.kejani_backend.Usermanagement.repositories;
 import com.example.kejani_backend.Usermanagement.entities.HouseOwner;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserManagementRepository extends JpaRepository<HouseOwner, Long> {
-    void findByEmail(String email);
+import java.util.Optional;
 
-    void findByMobileNumber(String mobileNumber);
+public interface UserManagementRepository extends JpaRepository<HouseOwner, Long> {
+
+
+    Optional<HouseOwner> findByEmail(String emailAddress);
+
+    Optional<HouseOwner> findByMobileNumber(String mobileNumber);
 }
