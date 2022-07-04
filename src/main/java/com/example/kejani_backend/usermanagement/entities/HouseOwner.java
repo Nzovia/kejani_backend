@@ -1,15 +1,11 @@
-package com.example.kejani_backend.Usermanagement.entities;
+package com.example.kejani_backend.usermanagement.entities;
 
-import com.example.kejani_backend.UtilitiesManagement.enums.BillPriority;
-import com.example.kejani_backend.UtilitiesManagement.models.HouseUtility;
+import com.example.kejani_backend.utilitiesManagement.models.HouseUtility;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.context.annotation.Lazy;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -28,7 +24,10 @@ public class HouseOwner {
     private String email;
     @Column(name = "userPhone", unique = true, length = 100)
     private String mobileNumber;
-
+    @Column(name = "userPassword")
+    private String password;
+    @Transient
+    private String confirmPassword;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "houseOwner")
     private Set<HouseUtility> houseUtility;

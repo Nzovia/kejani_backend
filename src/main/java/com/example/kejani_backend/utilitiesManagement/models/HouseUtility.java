@@ -1,15 +1,14 @@
-package com.example.kejani_backend.UtilitiesManagement.models;
+package com.example.kejani_backend.utilitiesManagement.models;
 
-import com.example.kejani_backend.Usermanagement.entities.HouseOwner;
-import com.example.kejani_backend.UtilitiesManagement.enums.BillPriority;
-import com.example.kejani_backend.UtilitiesManagement.enums.BillStatus;
+import com.example.kejani_backend.usermanagement.entities.HouseOwner;
+import com.example.kejani_backend.utilitiesManagement.enums.BillPriority;
+import com.example.kejani_backend.utilitiesManagement.enums.BillStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 
 
 @Entity

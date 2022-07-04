@@ -1,6 +1,6 @@
-package com.example.kejani_backend.Usermanagement.repositories;
+package com.example.kejani_backend.usermanagement.repositories;
 
-import com.example.kejani_backend.Usermanagement.entities.HouseOwner;
+import com.example.kejani_backend.usermanagement.entities.HouseOwner;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

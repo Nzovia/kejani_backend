@@ -1,5 +1,5 @@
-package com.example.kejani_backend.UtilitiesManagement.repositories;
-import com.example.kejani_backend.UtilitiesManagement.models.HouseUtility;
+package com.example.kejani_backend.utilitiesManagement.repositories;
+import com.example.kejani_backend.utilitiesManagement.models.HouseUtility;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

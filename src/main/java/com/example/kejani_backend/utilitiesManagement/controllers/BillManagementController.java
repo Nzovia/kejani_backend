@@ -1,11 +1,10 @@
-package com.example.kejani_backend.UtilitiesManagement.controllers;
+package com.example.kejani_backend.utilitiesManagement.controllers;
 
-import com.example.kejani_backend.Usermanagement.entities.HouseOwner;
-import com.example.kejani_backend.UtilitiesManagement.models.HouseUtility;
-import com.example.kejani_backend.UtilitiesManagement.services.BillCreationService;
-import com.example.kejani_backend.UtilitiesManagement.services.DeleteBillByIdService;
-import com.example.kejani_backend.UtilitiesManagement.services.ListAllHouserOwnerBillsService;
-import com.example.kejani_backend.UtilitiesManagement.services.UpdateBillService;
+import com.example.kejani_backend.utilitiesManagement.models.HouseUtility;
+import com.example.kejani_backend.utilitiesManagement.services.BillCreationService;
+import com.example.kejani_backend.utilitiesManagement.services.DeleteBillByIdService;
+import com.example.kejani_backend.utilitiesManagement.services.ListAllHouserOwnerBillsService;
+import com.example.kejani_backend.utilitiesManagement.services.UpdateBillService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

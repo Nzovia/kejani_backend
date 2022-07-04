@@ -1,4 +1,4 @@
-package com.example.kejani_backend.UtilitiesManagement.services;
+package com.example.kejani_backend.utilitiesManagement.services;
 
 import org.springframework.stereotype.Service;
 

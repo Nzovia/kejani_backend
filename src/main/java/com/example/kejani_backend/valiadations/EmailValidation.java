@@ -1,7 +1,5 @@
 package com.example.kejani_backend.valiadations;
 
-import org.junit.jupiter.api.Test;
-
 import java.util.regex.Pattern;
 
 public class EmailValidation {
