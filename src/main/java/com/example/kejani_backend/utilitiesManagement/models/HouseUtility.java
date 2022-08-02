@@ -19,11 +19,17 @@ import java.time.LocalDate;
 public class HouseUtility {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="bill_id")
     private Long billId;
+    @Column(name="bill_id")
     private String billName;
+    @Column(name = "logo")
     private String billLogo;
+    @Column(name = "payment_date")
     private LocalDate paymentDate;
+    @Column(name = "bill_balance")
     private int billBalance;
+    @Column(name = "bill_amount")
     private int billAmount;
     private BillStatus billStatus;
     private BillPriority billPriority;
