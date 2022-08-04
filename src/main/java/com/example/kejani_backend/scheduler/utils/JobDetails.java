@@ -1,9 +1,9 @@
 package com.example.kejani_backend.scheduler.utils;
 
 import com.example.kejani_backend.scheduler.billInfo.BillInfo;
-import org.quartz.JobBuilder;
-import org.quartz.JobDataMap;
-import org.quartz.JobDetail;
+import org.quartz.*;
+
+import java.util.Date;
 
 public final class JobDetails {
     public JobDetails() {}
@@ -22,5 +22,23 @@ public final class JobDetails {
                 .setJobData(jobDataMap)
                 .build();
 
+    }
+
+    /*
+    * Trigger method -> a mechanism that triggers the job that we wanna do*/
+    public static Trigger buildTrigger(final  Class jobClass, final BillInfo info ){
+        SimpleScheduleBuilder builder= SimpleScheduleBuilder.simpleSchedule().withIntervalInSeconds(info.getRepeatInterval());
+
+        if(info.isRunForever()){
+            builder.repeatForever();
+        }else{
+            builder = builder.withRepeatCount(info.getTotalFireCount()-1);
+        }
+        return TriggerBuilder
+                .newTrigger()
+                .withIdentity(jobClass.getSimpleName())
+                .withSchedule(builder)
+                .startAt(new Date(System.currentTimeMillis()+info.getInitialOffset()))
+                .build();
     }
 }
