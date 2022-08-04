@@ -20,8 +20,8 @@ public class HouseUtility {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="bill_id")
-    private Long billId;
-    @Column(name="bill_id")
+    private int billId;
+    @Column(name="bill_name")
     private String billName;
     @Column(name = "logo")
     private String billLogo;

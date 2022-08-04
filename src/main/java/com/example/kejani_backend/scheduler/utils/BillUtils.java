@@ -5,8 +5,8 @@ import org.quartz.*;
 
 import java.util.Date;
 
-public final class JobDetails {
-    public JobDetails() {}
+public final class BillUtils {
+    public BillUtils() {}
 
     //built job details that will be stored together when we are scheduling a timer
     /*
@@ -27,7 +27,8 @@ public final class JobDetails {
     /*
     * Trigger method -> a mechanism that triggers the job that we wanna do*/
     public static Trigger buildTrigger(final  Class jobClass, final BillInfo info ){
-        SimpleScheduleBuilder builder= SimpleScheduleBuilder.simpleSchedule().withIntervalInSeconds(info.getRepeatInterval());
+        SimpleScheduleBuilder builder= SimpleScheduleBuilder.simpleSchedule()
+                .withIntervalInMilliseconds(info.getRepeatInterval());
 
         if(info.isRunForever()){
             builder.repeatForever();

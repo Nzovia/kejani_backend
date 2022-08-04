@@ -1,6 +1,7 @@
 CREATE TABLE bills_data
 (
-    bill_id       BIGINT       NOT NULL,
+    bill_id       INT          NOT NULL,
+    bill_name     VARCHAR(255) NULL,
     logo          VARCHAR(255) NULL,
     payment_date  date         NULL,
     bill_balance  INT          NOT NULL,

@@ -1,0 +1,3 @@
+//The service is for playing around with the Scheduler,
+in that the service that consumes the scheduler, or testing the scheduler
+//Creating a Controller will help since it acts as the trigger to the schedule
