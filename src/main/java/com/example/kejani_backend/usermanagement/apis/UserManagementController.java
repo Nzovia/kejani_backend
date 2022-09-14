@@ -5,7 +5,7 @@ import com.example.kejani_backend.usermanagement.services.UserManagementService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/user")
+@RequestMapping("api/v1/user")
 public class UserManagementController {
     
     private final UserManagementService userManagementService;
@@ -15,9 +15,10 @@ public class UserManagementController {
     }
 
     //UserCreation api
-    @PostMapping("/registration")
-    public void createUser(@RequestBody HouseOwner houseOwner){
+    @PostMapping("/register")
+    public String createUser(@RequestBody HouseOwner houseOwner){
         userManagementService.save(houseOwner);
+        return "user created";
     }
 
     //fetching single userDetails api

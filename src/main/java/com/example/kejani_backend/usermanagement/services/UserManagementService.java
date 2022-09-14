@@ -25,24 +25,28 @@ public class UserManagementService {
         var validationPattern = "^(.+)@(\\S+)$";
         EmailValidation emailValidation = new EmailValidation();
         //check if the email is valid format
-        if (emailValidation.patternMatches(emailAddress,validationPattern ) == false){
+        if (emailValidation.patternMatches(emailAddress, validationPattern) == false) {
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "Enter valid email");
         }
-            //check if the email and mobile number exists
-            Optional<HouseOwner> emailExists = userManagementRepository.findByEmail(emailAddress);
-            Optional<HouseOwner> phoneNumberExists = userManagementRepository.findByMobileNumber(phoneNumber);
-            if(emailExists.isPresent()){
-                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The email is already take");
-            }
-            if(phoneNumberExists.isPresent()){
-                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "the phone number is taken");
-            }
-            if(houseOwner.getPassword() != houseOwner.getConfirmPassword()){
-                throw new IllegalArgumentException("There is password mismatch");
-            }
-            if(phoneNumber.length() != 10){
-                throw  new IllegalArgumentException("Digits less than 10");
-            }
+        //check if the email and mobile number exists
+        Optional<HouseOwner> emailExists = userManagementRepository.findByEmail(emailAddress);
+        Optional<HouseOwner> phoneNumberExists = userManagementRepository.findByMobileNumber(phoneNumber);
+        if (emailExists.isPresent()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The email is already taken");
+        }
+        if (phoneNumberExists.isPresent()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "the phone number is taken");
+        }
+        if (phoneNumber.length() != 10) {
+            throw new IllegalArgumentException("Digits less than 10");
+        }
+
+        var pass1 = houseOwner.getPassword();
+        var pass2 = houseOwner.getConfirmPassword();
+
+        if (!pass1.equals(pass2)) {
+            throw new IllegalArgumentException("There is password mismatch");
+        }
 
         return new ResponseEntity(userManagementRepository.save(houseOwner), HttpStatus.OK);
     }
@@ -52,12 +56,12 @@ public class UserManagementService {
     }
 
     //delete user profile
-    public void deleteAccount(Long id){
+    public void deleteAccount(Long id) {
         userManagementRepository.deleteById(id);
     }
 
     //updating user profile
-    public HouseOwner updateProfile(HouseOwner houseOwner){
+    public HouseOwner updateProfile(HouseOwner houseOwner) {
         HouseOwner userExists = userManagementRepository.findById(houseOwner.getUserId()).orElse(null);
         userExists.setUserName(houseOwner.getUserName());
         userExists.setEmail(houseOwner.getEmail());

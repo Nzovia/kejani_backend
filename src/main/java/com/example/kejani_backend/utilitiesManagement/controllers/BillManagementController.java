@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("api/v1/bills")
 public class BillManagementController {
 
     @Autowired
@@ -29,7 +29,7 @@ public class BillManagementController {
         this.updateBillService = updateBillService;
         this.deleteBillByIdService = deleteBillByIdService;
     }
-    @PostMapping("/newUtility")
+    @PostMapping("/add")
     public void createUtilityBill(@RequestBody HouseUtility houseUtility) {
         billCreationService.createUser(houseUtility);
 

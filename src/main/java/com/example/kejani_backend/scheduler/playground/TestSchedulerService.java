@@ -25,7 +25,7 @@ public class TestSchedulerService {
         billInfo.setRepeatInterval(2000);
         billInfo.setInitialOffset(1500);
         billInfo.setCallBackData("Bill CallBackData");
-        log.info("Bill Now");
+        log.info("Your Bill is up Now");
 
         schedulingService.runningSchedule(BillJob.class, billInfo);
     }

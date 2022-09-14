@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    username: root
+    password: 123$Nick
+    url: jdbc:mysql://localhost:3306/kejani_db?reconnect=true
+  #    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true
+    #    show-sql: true
+    database: mysql
+
+server:
+  port: 8090
