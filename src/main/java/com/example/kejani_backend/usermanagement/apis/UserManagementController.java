@@ -22,9 +22,9 @@ public class UserManagementController {
     }
 
     //fetching single userDetails api
-    @GetMapping("/profile/{id}")
-    public HouseOwner getSingleHouseOwner(@PathVariable Long id, UserProfileReq profile){
-        return userManagementService.showUserDetails(id);
+    @GetMapping("/profile/{userId}")
+    public HouseOwner getSingleHouseOwner(@PathVariable("userId") Long userId){
+        return userManagementService.showUserDetails(userId);
     }
 
     //deleting users api

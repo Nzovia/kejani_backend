@@ -11,4 +11,6 @@ public interface UserManagementRepository extends JpaRepository<HouseOwner, Long
     Optional<HouseOwner> findByEmail(String emailAddress);
 
     Optional<HouseOwner> findByMobileNumber(String mobileNumber);
+
+    Optional<HouseOwner> findByUserId(Long userId);
 }

@@ -3,11 +3,13 @@ package com.example.kejani_backend.usermanagement.services;
 import com.example.kejani_backend.usermanagement.entities.HouseOwner;
 import com.example.kejani_backend.usermanagement.repositories.UserManagementRepository;
 import com.example.kejani_backend.valiadations.EmailValidation;
+import org.hibernate.annotations.NotFound;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -51,8 +53,14 @@ public class UserManagementService {
         return new ResponseEntity(userManagementRepository.save(houseOwner), HttpStatus.OK);
     }
 
-    public HouseOwner showUserDetails(Long id) {
-        return userManagementRepository.findById(id).orElse(null);
+    public HouseOwner showUserDetails(Long userId){
+
+        Optional<HouseOwner> houseOwner =
+                userManagementRepository.findByUserId(userId);
+        if(!houseOwner.isPresent()){
+            throw new NoSuchElementException("profile does not exist or might have been deleted");
+        }
+        return houseOwner.get();
     }
 
     //delete user profile

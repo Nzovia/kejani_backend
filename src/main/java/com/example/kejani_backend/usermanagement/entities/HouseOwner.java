@@ -14,7 +14,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "UserData")
+@Table(name = "user_data")
 public class HouseOwner {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
