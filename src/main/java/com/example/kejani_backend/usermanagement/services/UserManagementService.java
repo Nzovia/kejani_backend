@@ -3,7 +3,6 @@ package com.example.kejani_backend.usermanagement.services;
 import com.example.kejani_backend.usermanagement.entities.HouseOwner;
 import com.example.kejani_backend.usermanagement.repositories.UserManagementRepository;
 import com.example.kejani_backend.valiadations.EmailValidation;
-import org.hibernate.annotations.NotFound;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -69,8 +68,8 @@ public class UserManagementService {
     }
 
     //updating user profile
-    public HouseOwner updateProfile(HouseOwner houseOwner) {
-        HouseOwner userExists = userManagementRepository.findById(houseOwner.getUserId()).orElse(null);
+    public HouseOwner updateProfile(Long userId, HouseOwner houseOwner) {
+        HouseOwner userExists = userManagementRepository.findById(userId).get();
         userExists.setUserName(houseOwner.getUserName());
         userExists.setEmail(houseOwner.getEmail());
         userExists.setMobileNumber(houseOwner.getMobileNumber());

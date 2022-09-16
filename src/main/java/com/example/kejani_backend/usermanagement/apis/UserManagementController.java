@@ -1,5 +1,5 @@
 package com.example.kejani_backend.usermanagement.apis;
-import com.example.kejani_backend.payload.UserProfileReq;
+
 import com.example.kejani_backend.usermanagement.entities.HouseOwner;
 import com.example.kejani_backend.usermanagement.services.UserManagementService;
 import org.springframework.web.bind.annotation.*;
@@ -34,8 +34,8 @@ public class UserManagementController {
     }
 
     //update users api
-    @PutMapping
-    public HouseOwner updateProfile(@RequestBody HouseOwner houseOwner){
-        return userManagementService.updateProfile(houseOwner);
+    @PutMapping("{userId}")
+    public HouseOwner updateProfile(@PathVariable("userId") Long userId,@RequestBody HouseOwner houseOwner){
+        return userManagementService.updateProfile(userId,houseOwner);
     }
 }
