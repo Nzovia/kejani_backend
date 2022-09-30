@@ -1,7 +1,7 @@
 package com.example.kejani_backend.usermanagement.entities;
 
 import com.example.kejani_backend.cardmanagement.entities.Cards;
-import com.example.kejani_backend.utilitiesManagement.models.HouseUtility;
+import com.example.kejani_backend.utilitiesManagement.models.HouseBill;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,7 +32,7 @@ public class HouseOwner {
     private String confirmPassword;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "houseOwner")
-    private Set<HouseUtility> houseUtility;
+    private Set<HouseBill> houseBill;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "houseOwner")
     private List<Cards> userCards;

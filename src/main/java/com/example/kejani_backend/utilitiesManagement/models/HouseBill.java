@@ -16,7 +16,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "bills_data")
-public class HouseUtility {
+public class HouseBill {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="bill_id")
@@ -31,10 +31,10 @@ public class HouseUtility {
     private int billBalance;
     @Column(name = "bill_amount")
     private int billAmount;
-    private BillStatus billStatus;
+    private BillStatus billStatus = BillStatus.PENDING;
     private BillPriority billPriority;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "userIdentity", nullable = false)
     private HouseOwner houseOwner;
 

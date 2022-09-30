@@ -1,6 +1,7 @@
 package com.example.kejani_backend.utilitiesManagement.controllers;
 
-import com.example.kejani_backend.utilitiesManagement.models.HouseUtility;
+import com.example.kejani_backend.utilitiesManagement.controllers.body.HouseBillRequest;
+import com.example.kejani_backend.utilitiesManagement.models.HouseBill;
 import com.example.kejani_backend.utilitiesManagement.services.BillCreationService;
 import com.example.kejani_backend.utilitiesManagement.services.DeleteBillByIdService;
 import com.example.kejani_backend.utilitiesManagement.services.ListAllHouserOwnerBillsService;
@@ -29,13 +30,13 @@ public class BillManagementController {
         this.updateBillService = updateBillService;
         this.deleteBillByIdService = deleteBillByIdService;
     }
-    @PostMapping("/add")
-    public void createUtilityBill(@RequestBody HouseUtility houseUtility) {
-        billCreationService.createUser(houseUtility);
+    @PostMapping("/add/{userid}")
+    public void createUtilityBill(@PathVariable(value = "id") String userid, @RequestBody HouseBillRequest houseBillRequest) {
+        billCreationService.createBill(houseBillRequest);
 
     }
     @GetMapping
-    public List<HouseUtility> displayAllUserBills(){
+    public List<HouseBill> displayAllUserBills(){
         return houserOwnerBillsService.displayAllBills();
     }
 }

@@ -1,5 +1,5 @@
 package com.example.kejani_backend.utilitiesManagement.services;
-import com.example.kejani_backend.utilitiesManagement.models.HouseUtility;
+import com.example.kejani_backend.utilitiesManagement.models.HouseBill;
 import com.example.kejani_backend.utilitiesManagement.repositories.BillsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ public class ListAllHouserOwnerBillsService {
     }
 
 
-    public List<HouseUtility> displayAllBills() {
+    public List<HouseBill> displayAllBills() {
         return billsRepository.findAll();
     }
 }
