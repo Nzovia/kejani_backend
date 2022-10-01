@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface BillsRepository extends JpaRepository<HouseBill,Long> {
+public interface BillsRepository extends JpaRepository<HouseBill,Integer> {
 }

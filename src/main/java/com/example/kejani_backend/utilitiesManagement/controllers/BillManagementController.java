@@ -6,7 +6,10 @@ import com.example.kejani_backend.utilitiesManagement.services.BillCreationServi
 import com.example.kejani_backend.utilitiesManagement.services.DeleteBillByIdService;
 import com.example.kejani_backend.utilitiesManagement.services.ListAllHouserOwnerBillsService;
 import com.example.kejani_backend.utilitiesManagement.services.UpdateBillService;
+import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -39,5 +42,12 @@ public class BillManagementController {
     @GetMapping
     public List<HouseBill> displayAllUserBills(){
         return houserOwnerBillsService.displayAllBills();
+    }
+
+    @DeleteMapping("delete/{billId}")
+    public ResponseEntity<String> deleteBill(@PathVariable Integer billId){
+        deleteBillByIdService.deleteDeleteBill(billId);
+        return new ResponseEntity<>("Bill deleted successfully", HttpStatus.OK);
+
     }
 }
