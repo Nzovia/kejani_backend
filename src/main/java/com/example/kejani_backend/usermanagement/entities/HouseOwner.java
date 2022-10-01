@@ -2,11 +2,16 @@ package com.example.kejani_backend.usermanagement.entities;
 
 import com.example.kejani_backend.cardmanagement.entities.Cards;
 import com.example.kejani_backend.utilitiesManagement.models.HouseBill;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -31,8 +36,10 @@ public class HouseOwner {
     @Transient
     private String confirmPassword;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "houseOwner")
-    private Set<HouseBill> houseBill;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "houseOwner", cascade = CascadeType.ALL)
+    @Fetch(value= FetchMode.SELECT)
+    @JsonManagedReference
+    private List<HouseBill> houseBill;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "houseOwner")
     private List<Cards> userCards;

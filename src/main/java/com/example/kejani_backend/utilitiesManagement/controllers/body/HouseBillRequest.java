@@ -12,8 +12,6 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class HouseBillRequest {
     @NotNull
-    private Long userId;
-    @NotNull
     private String billName;
     @NotNull
     private String billLogo;

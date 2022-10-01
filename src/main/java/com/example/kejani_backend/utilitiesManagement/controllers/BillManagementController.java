@@ -30,9 +30,10 @@ public class BillManagementController {
         this.updateBillService = updateBillService;
         this.deleteBillByIdService = deleteBillByIdService;
     }
-    @PostMapping("/add/{userid}")
-    public void createUtilityBill(@PathVariable(value = "id") String userid, @RequestBody HouseBillRequest houseBillRequest) {
-        billCreationService.createBill(houseBillRequest);
+    @PostMapping("/add/{userId}")
+    public void createUtilityBill(@PathVariable(value = "userId") Long userId
+            ,@RequestBody HouseBillRequest houseBillRequest) {
+        billCreationService.createBill(userId,houseBillRequest);
 
     }
     @GetMapping

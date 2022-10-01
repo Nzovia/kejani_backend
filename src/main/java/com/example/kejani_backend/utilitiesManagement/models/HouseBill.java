@@ -3,12 +3,14 @@ package com.example.kejani_backend.utilitiesManagement.models;
 import com.example.kejani_backend.usermanagement.entities.HouseOwner;
 import com.example.kejani_backend.utilitiesManagement.enums.BillPriority;
 import com.example.kejani_backend.utilitiesManagement.enums.BillStatus;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Optional;
 
 
 @Entity
@@ -35,7 +37,7 @@ public class HouseBill {
     private BillPriority billPriority;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "userIdentity", nullable = false)
+    @JoinColumn(name = "user_id")
+    @JsonBackReference
     private HouseOwner houseOwner;
-
 }
